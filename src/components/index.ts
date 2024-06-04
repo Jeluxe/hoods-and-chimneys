@@ -4,7 +4,6 @@ import Card from "./Card/Card"
 import Cards from "./Cards/Cards"
 import Dropdown from "./Dropdown/Dropdown"
 import FilterMenu from "./FilterMenu/FilterMenu"
-import DoubleHandleRangeInput from "./DoubleHandleRangeInput/DoubleHandleRangeInput"
 
 export {
   Navbar,
@@ -13,5 +12,4 @@ export {
   Dropdown,
   Card,
   Cards,
-  DoubleHandleRangeInput
 }
