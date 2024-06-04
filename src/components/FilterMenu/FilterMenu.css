@@ -1,0 +1,97 @@
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.filter-section.sm {
+  position: fixed;
+  background: white;
+  height: 100vh;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  & .filters-wrapper:not(.sm) {
+    position: relative;
+    padding-top: 170px;
+  }
+}
+
+.filters-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 200px;
+  top: 210px;
+}
+
+.filters-wrapper.sm {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+*:has(.filter-section.sm:not(.hide) .filters-wrapper.sm) {
+  overflow: hidden;
+}
+
+.filters-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.filters-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.filter-menu-button {
+  color: rgb(0, 115, 246);
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-option {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.button-wrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.filter-button {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.filters-wrapper:not(.sm) .button-wrapper {
+  padding-left: 20px;
+}
+
+.filters-wrapper:not(.sm) .price-input-container {
+  display: flex;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+
+.price-input-container {
+  display: flex;
+  direction: ltr;
+  justify-content: flex-end;
+}
+
+.price-inputs {
+  width: 100px;
+  margin: 0 15px;
+  outline: none;
+}
