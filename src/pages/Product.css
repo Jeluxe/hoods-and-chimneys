@@ -1,7 +1,6 @@
 .product {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 50px 0;
 }
 
@@ -9,4 +8,30 @@
   width: 70%;
   display: flex;
   gap: 24px;
+}
+
+.product-image-wrapper {
+  align-self: center;
+}
+
+.product-image-wrapper img {
+  width: 320px;
+  height: auto;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px
+}
+
+.product-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+  .product-wrapper {
+    flex-direction: column;
+  }
 }

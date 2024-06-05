@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+
+import DummyImage320x380 from "../assets/images/dummy_320x380.png"
 import "./Product.css"
 
 interface ProductProps {
@@ -33,7 +35,7 @@ const Product = () => {
     <div className="product">
       <div className="product-wrapper">
         <div className="product-image-wrapper">
-          <img src={productInfo.image} width={320} height={380} />
+          <img src={DummyImage320x380 || productInfo.image} />
         </div>
         <div className="product-info">
           <div className="product-name">{productInfo.name}</div>
