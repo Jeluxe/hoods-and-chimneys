@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './Card.css'
 
 interface CardProps {
@@ -8,6 +9,8 @@ interface CardProps {
 }
 
 const Card = ({ id, name, price, image }: CardProps) => {
+  const navigate = useNavigate();
+
   return (
     <div id={id} className="card">
       <img src={image} />
@@ -16,7 +19,7 @@ const Card = ({ id, name, price, image }: CardProps) => {
           <div>{name}</div>
           <div>{price} ₪ </div>
         </div>
-        <button>לפרטים</button>
+        <button onClick={() => navigate(`/products/${id}`)}>לפרטים</button>
       </div>
     </div>
   )
