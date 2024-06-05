@@ -18,7 +18,6 @@
 
 .navbar ul {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .navbar li a {
@@ -27,4 +26,11 @@
 
 .navbar li a:hover {
   background: rgba(255, 255, 255, 0.26)
+}
+
+@media screen and (max-width: 768px) {
+  .navbar li a {
+    padding: 20px 32px;
+  }
+
 }
