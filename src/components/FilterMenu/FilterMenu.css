@@ -64,6 +64,12 @@
   padding-left: 10px;
 }
 
+.filter-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
 .button-wrapper {
   width: 100%;
   margin-top: 20px;
