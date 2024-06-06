@@ -5,8 +5,13 @@ import {
 } from "../../assets/icons"
 import './Dropdown.css'
 
-const Dropdown = ({ types, selectedOption, setSelectedOption }: { types: { [key: string]: string }, selectedOption: string, setSelectedOption: React.Dispatch<string> }) => {
+interface DropdownProps {
+  types: { [key: string]: string },
+  selectedOption: string,
+  setSelectedOption: React.Dispatch<string>
+}
 
+const Dropdown = ({ types, selectedOption, setSelectedOption }: DropdownProps) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
 
   useEffect(() => {
@@ -33,10 +38,26 @@ const Dropdown = ({ types, selectedOption, setSelectedOption }: { types: { [key:
 
   return (
     <div className="dropdown-menu">
-      <div className="dropdown-menu-wrapper">סידור לפי:<div className="selected-option" onClick={(e) => openCloseDropdown(e)}>{types[selectedOption]} <span>{dropdownOpen ? <ArrowUp /> : <ArrowDown />}</span></div></div>
+      <div className="dropdown-menu-wrapper">
+        סידור לפי:
+        <div
+          className="selected-option"
+          onClick={(e) => openCloseDropdown(e)}>
+          {types[selectedOption]}
+          <span>{dropdownOpen ? <ArrowUp /> : <ArrowDown />}</span>
+        </div>
+      </div>
       {dropdownOpen &&
         <div className="dropdown-box">
-          {Object.keys(types).map((key, idx) => <div key={idx} className="dropdown-option" onClick={() => chooseSortingType(key)}>{types[key]}</div>)}
+          {Object.keys(types).map((key, idx) =>
+            <div
+              key={idx}
+              className="dropdown-option"
+              onClick={() => chooseSortingType(key)}
+            >
+              {types[key]}
+            </div>
+          )}
         </div>
       }
     </div>

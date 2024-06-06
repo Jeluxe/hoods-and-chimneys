@@ -11,7 +11,7 @@ import './App.css'
 
 const App: React.FC = () => {
   const [isSticky, setIsSticky] = useState<boolean>(false);
-  const photoRef = useRef<HTMLImageElement | null>(null);
+  const photoRef = useRef<HTMLImageElement>(null);
 
   const handleScroll = () => {
     if (photoRef.current) {

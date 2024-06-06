@@ -2,6 +2,7 @@ import { MouseEvent, useEffect, useState } from 'react';
 import { Cards, Dropdown, FilterMenu } from '../components'
 import "./products.css"
 import { Filter } from '../assets/icons';
+import { displayedProductProps } from '../types';
 
 const sortingTypes: { [key: string]: string } = {
   "popularity": "פופולרי",
@@ -9,7 +10,9 @@ const sortingTypes: { [key: string]: string } = {
   "highToLow": "גבוה לנמוך"
 }
 
+
 const Products = () => {
+  const [products, setProducts] = useState<displayedProductProps[]>([])
   const [isSmallDevice, setIsSmallDevice] = useState<boolean>(false)
   const [showFilterMenu, setShowFilterMenu] = useState<boolean>(false)
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -17,6 +20,13 @@ const Products = () => {
   const [selectedSortingType, setSelectedSortingType] = useState<string>("popularity");
 
   useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await fetch(`http://localhost:8000/products`);
+      return await res.json();
+    }
+
+    fetchProducts().then((data: displayedProductProps[]) => setProducts(data))
+
     const handleResize = () => {
       const winWidth = window.innerWidth;
       if (winWidth <= 768) {
@@ -67,7 +77,7 @@ const Products = () => {
             setSelectedOption={setSelectedSortingType}
           />
         </div>
-        <Cards />
+        <Cards products={products} />
       </div>
     </div>
   )

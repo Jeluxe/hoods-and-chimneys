@@ -1,15 +1,11 @@
 import { Card } from "../"
-
+import { displayedProductProps } from "../../types";
 import './Cards.css'
 
-interface CardsProps {
-  cards?: string[]
-}
-
-const Cards = ({ cards = ["dfff"] }: CardsProps) => {
+const Cards = ({ products }: { products: displayedProductProps[] }) => {
   return (
     <div className="cards">
-      {cards.concat(Array(10).fill(0)).map((_, idx) => <Card key={idx} id={`${idx}`} name={`חפץ ${idx}`} price={999} />)}
+      {products?.map((product, idx) => <Card key={idx} product={product} />)}
     </div>
   )
 };
