@@ -1,4 +1,3 @@
-import "./Welcome.css";
 import { Carousel } from "../components";
 
 const Welcome = () => {
