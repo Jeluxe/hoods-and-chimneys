@@ -5,13 +5,9 @@
   position: relative;
 }
 
-.carousel {
-  position: relative;
-}
-
 .carousel-controls {
   height: 100%;
-  width: calc(100% - 16px);
+  width: 100%;
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -35,14 +31,16 @@
   cursor: pointer;
 }
 
-.carousel,
-.carousel-page {
+.carousel {
+  position: relative;
   width: 100vw;
   height: 100%;
 }
 
-.carousel-page {
+.carousel img {
   position: absolute;
+  width: 100%;
+  height: 600px;
 }
 
 .carousel-navigation {
@@ -52,6 +50,7 @@
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 4;
 }
 
 .carousel-navigation-item {

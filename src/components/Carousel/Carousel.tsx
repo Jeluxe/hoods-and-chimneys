@@ -4,12 +4,13 @@ import {
   ArrowLeft,
   ArrowRight,
 } from '../../assets/icons';
+import { fisherman, lens, cleaning } from "../../assets/images";
 
 interface CarouselProps {
   imageList?: string[];
 }
 
-const Carousel = ({ imageList = ["orange", "tomato", "green", "blue"] }: CarouselProps) => {
+const Carousel = ({ imageList = [fisherman, lens, cleaning] }: CarouselProps) => {
   const [selected, setSelected] = useState<number>(0);
   const intervalRef = useRef<number>()
 
@@ -53,9 +54,7 @@ const Carousel = ({ imageList = ["orange", "tomato", "green", "blue"] }: Carouse
         <button className="carousel-button next" onClick={() => nextImage()}><ArrowLeft /></button>
       </div>
       <div className="carousel">
-        {imageList.map((image: string, idx: number) =>
-          <div key={idx} className="carousel-page" style={{ background: image, display: selected === idx ? "block" : "none" }}></div>
-        )}
+        <img src={imageList[selected]} />
       </div>
       <div className="carousel-navigation">
         {imageList.map((_: string, idx: number) =>
