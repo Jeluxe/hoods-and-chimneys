@@ -1,7 +1,4 @@
-import youtubeIcon from "../../assets/images/youtube-icon.png"
-import facebookIcon from "../../assets/images/facebook-icon.png"
-import instagramIcon from "../../assets/images/instagram-icon.png"
-// import googlePlusIcon from "../../assets/images/google-icon.png"
+import { Youtube, Facebook, Instagram } from "../../assets/icons"
 import './Footer.css'
 
 const Footer = () => {
@@ -10,10 +7,9 @@ const Footer = () => {
       <div className='footer-links'>
         <div className='social-media-section'>
           <ul className='social-media-links'>
-            <li className='social-media-link'><a href="https://www.youtube.com" target="_blank"><img className="icon resized" src={youtubeIcon} /></a></li>
-            <li className='social-media-link'><a href="https://www.facebook.com" target="_blank"><img className="icon resized" src={facebookIcon} /></a></li>
-            <li className='social-media-link'><a href="https://www.instagram.com" target="_blank"><img className="icon resized" src={instagramIcon} /></a></li>
-            {/* <li className='social-media-link'><a href="" target="_blank"><img className="icon" src={googlePlusIcon} /></a></li> */}
+            <li className='social-media-link'><a href="https://www.youtube.com" target="_blank"><img className="icon resized" src={Youtube} /></a></li>
+            <li className='social-media-link'><a href="https://www.facebook.com" target="_blank"><img className="icon resized" src={Facebook} /></a></li>
+            <li className='social-media-link'><a href="https://www.instagram.com" target="_blank"><img className="icon resized" src={Instagram} /></a></li>
           </ul>
           <p className="section-content">עקבו אחרנו ברשתות החברתיות</p>
         </div>
