@@ -22,9 +22,6 @@ const FilterMenu = ({ isSmallDevice, showFilterMenu, setShowFilterMenu, isOpen, 
       max: 9999
     }
   })
-  const [leftValue, setLeftValue] = useState<number>(filterOptions.price.min)
-  const [rightValue, setRightValue] = useState<number>(filterOptions.price.max)
-
 
   const selectFilterOption = (e: ChangeEvent, id: string) => {
     stopPropagation(e);
@@ -52,12 +49,13 @@ const FilterMenu = ({ isSmallDevice, showFilterMenu, setShowFilterMenu, isOpen, 
   const stopPropagation = (e: MouseEvent | ChangeEvent) => e.stopPropagation();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>, position: "right" | "left") => {
-    if (/\D/g.test(e.target.value)) return "";
+    const val = Number(e.target.value.replace(/[^0-9]/g, ''));
+    console.log(val)
 
     if (position === "right") {
-      setRightValue(Number(e.target.value))
+      setFilterOptions(prev => ({ ...prev, price: { ...prev.price, min: val } }))
     } else {
-      setLeftValue(Number(e.target.value))
+      setFilterOptions(prev => ({ ...prev, price: { ...prev.price, max: val } }))
     }
   }
 
@@ -100,22 +98,25 @@ const FilterMenu = ({ isSmallDevice, showFilterMenu, setShowFilterMenu, isOpen, 
                 <br />
                 <div className="price-input-container">
                   <input
-                    type='number'
-                    className="price-inputs"
+                    type='text'
+                    id='left'
+                    className='price-inputs'
+                    value={filterOptions.price.max}
                     onChange={(e) => onChange(e, "left")}
-                    min={1}
-                    max={rightValue}
                     maxLength={4}
+                    pattern='\d*'
                   />
-                  <span>-</span>
+                  <label htmlFor='right'>עד</label>
                   <input
-                    type='number'
-                    className="price-inputs"
+                    type='text'
+                    id='right'
+                    className='price-inputs'
+                    value={filterOptions.price.min}
                     onChange={(e) => onChange(e, "right")}
-                    min={leftValue}
-                    max={9999}
                     maxLength={4}
+                    pattern='\d*'
                   />
+                  <label htmlFor='right'>מ</label>
                 </div>
               </div>
             </div>

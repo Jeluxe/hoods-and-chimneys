@@ -58,13 +58,8 @@
   user-select: none;
 }
 
+.filter-wrapper,
 .filter-option {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
-}
-
-.filter-wrapper {
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
@@ -94,9 +89,10 @@
   display: flex;
   direction: ltr;
   justify-content: flex-end;
+  gap: 5px;
 }
 
 .price-inputs {
-  width: 100px;
+  width: 60px;
   outline: none;
 }
