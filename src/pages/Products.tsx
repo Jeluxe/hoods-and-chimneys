@@ -59,6 +59,19 @@ const Products = () => {
     setSelectedSection(type);
   }
 
+  const sortingPlan = (a: displayedProductProps, b: displayedProductProps, type: string) => {
+    switch (type) {
+      case "lowToHigh":
+        return a.price - b.price;
+      case "highToLow":
+        return b.price - a.price;
+      default:
+        return 0;
+    }
+  }
+
+  const sortedProducts = products.sort((a: displayedProductProps, b: displayedProductProps) => sortingPlan(a, b, selectedSortingType))
+
   return (
     <div className="products-container">
       <FilterMenu
@@ -87,7 +100,7 @@ const Products = () => {
             setSelectedOption={setSelectedSortingType}
           />
         </div>
-        <Cards products={products} />
+        <Cards products={sortedProducts} />
       </div>
     </div>
   )
