@@ -1,8 +1,11 @@
-import { ChangeEvent, MouseEvent, useState, } from 'react';
+import { ChangeEvent, MouseEvent } from 'react';
 import { ArrowDown, ArrowUp } from '../../assets/icons';
 import './FilterMenu.css'
+import { FilterOptions } from '../../types';
 
 interface FilterMenuProps {
+  filterOptions: FilterOptions,
+  setFilterOptions: React.Dispatch<React.SetStateAction<FilterOptions>>,
   isSmallDevice: boolean;
   showFilterMenu: boolean;
   isOpen: boolean;
@@ -11,18 +14,7 @@ interface FilterMenuProps {
   openCloseSection: (e: MouseEvent<HTMLDivElement>, type: string) => void;
 }
 
-const FilterMenu = ({ isSmallDevice, showFilterMenu, setShowFilterMenu, isOpen, selectedSection, openCloseSection }: FilterMenuProps) => {
-  const [filterOptions, setFilterOptions] = useState<{ type: { id: string, name: string, checked: boolean }[], price: { min: number, max: number } }>({
-    type: [
-      { id: "coal", name: "פחם", checked: false },
-      { id: "filter", name: "מסנן", checked: false },
-    ],
-    price: {
-      min: 1,
-      max: 9999
-    }
-  })
-
+const FilterMenu = ({ filterOptions, setFilterOptions, isSmallDevice, showFilterMenu, setShowFilterMenu, isOpen, selectedSection, openCloseSection }: FilterMenuProps) => {
   const selectFilterOption = (e: ChangeEvent, id: string) => {
     stopPropagation(e);
 

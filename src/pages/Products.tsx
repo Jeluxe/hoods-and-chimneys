@@ -2,22 +2,30 @@ import { MouseEvent, useEffect, useState } from 'react';
 import { Cards, Dropdown, FilterMenu } from '../components'
 import "./products.css"
 import { Filter } from '../assets/icons';
-import { displayedProductProps } from '../types';
+import { FilterOptions, displayedProductProps } from '../types';
 
 const sortingTypes: { [key: string]: string } = {
-  "popularity": "פופולרי",
   "lowToHigh": "נמוך לגבוה",
   "highToLow": "גבוה לנמוך"
 }
 
-
 const Products = () => {
-  const [products, setProducts] = useState<displayedProductProps[]>([])
-  const [isSmallDevice, setIsSmallDevice] = useState<boolean>(false)
-  const [showFilterMenu, setShowFilterMenu] = useState<boolean>(false)
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [selectedSection, setSelectedSection] = useState<string>("type")
-  const [selectedSortingType, setSelectedSortingType] = useState<string>("popularity");
+  const [products, setProducts] = useState<displayedProductProps[]>([]);
+  const [isSmallDevice, setIsSmallDevice] = useState<boolean>(false);
+  const [showFilterMenu, setShowFilterMenu] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedSection, setSelectedSection] = useState<string>("type");
+  const [selectedSortingType, setSelectedSortingType] = useState<string>("lowToHigh");
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
+    type: [
+      { id: "coal", name: "פחם", checked: false },
+      { id: "filter", name: "מסנן", checked: false },
+    ],
+    price: {
+      min: 1,
+      max: 9999
+    }
+  })
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -54,6 +62,8 @@ const Products = () => {
   return (
     <div className="products-container">
       <FilterMenu
+        filterOptions={filterOptions}
+        setFilterOptions={setFilterOptions}
         isSmallDevice={isSmallDevice}
         showFilterMenu={showFilterMenu}
         setShowFilterMenu={setShowFilterMenu}
