@@ -1,0 +1,41 @@
+.about {
+  display: flex;
+  justify-content: center;
+  direction: rtl;
+  margin: 50px 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 54%;
+  justify-content: center;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  gap: 40px
+}
+
+section:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 1440px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1028px) {
+  .wrapper {
+    gap: 50px;
+  }
+
+  section {
+    flex-direction: column !important;
+    word-break: break-all;
+  }
+}
