@@ -55,12 +55,7 @@
 }
 
 .social-media-link .icon {
-  max-width: 100%;
-  height: auto;
-}
-
-.resized {
-  max-width: 142% !important;
+  max-width: 142%;
 }
 
 .company-information {

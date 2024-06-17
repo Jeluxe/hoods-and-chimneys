@@ -2,14 +2,26 @@ import { Youtube, Facebook, Instagram } from "../../assets/icons"
 import './Footer.css'
 
 const Footer = () => {
+  const links = [
+    { link: "https://www.youtube.com", icon: Youtube },
+    { link: "https://www.facebook.com", icon: Facebook },
+    { link: "https://www.instagram.com", icon: Instagram }
+  ];
+
   return (
     <div className='footer'>
       <div className='footer-links'>
         <div className='social-media-section'>
           <ul className='social-media-links'>
-            <li className='social-media-link'><a href="https://www.youtube.com" target="_blank"><img className="icon resized" src={Youtube} /></a></li>
-            <li className='social-media-link'><a href="https://www.facebook.com" target="_blank"><img className="icon resized" src={Facebook} /></a></li>
-            <li className='social-media-link'><a href="https://www.instagram.com" target="_blank"><img className="icon resized" src={Instagram} /></a></li>
+            {
+              links.map((item, idx) =>
+                <li key={idx} className='social-media-link'>
+                  <a href={item.link} target="_blank">
+                    <img className="icon" src={item.icon} />
+                  </a>
+                </li>
+              )
+            }
           </ul>
           <p className="section-content">עקבו אחרנו ברשתות החברתיות</p>
         </div>
@@ -28,7 +40,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      {/* <div className='footer-credits'>@shay LTD</div> */}
     </div>
   )
 };
