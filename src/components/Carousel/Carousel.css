@@ -45,7 +45,7 @@
 
 .carousel-navigation {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   position: absolute;
   bottom: 10px;
   left: 50%;
