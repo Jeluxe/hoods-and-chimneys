@@ -41,6 +41,7 @@ const Carousel = ({ imageList = [fisherman, lens, cleaning] }: CarouselProps) =>
 
   useEffect(() => {
     nextImage();
+
     return () => {
       clearInterval(intervalRef.current);
     };
@@ -58,7 +59,7 @@ const Carousel = ({ imageList = [fisherman, lens, cleaning] }: CarouselProps) =>
       </div>
       <div className="carousel-navigation">
         {imageList.map((_: string, idx: number) =>
-          <div key={idx} id={`${idx}`} className={`carousel-navigation-item ${selected == idx ? "active" : null}`} onClick={selectImage}></div>
+          <div key={idx} id={`${idx}`} className={`carousel-navigation-item ${selected == idx ? "active" : ""}`} onClick={selectImage}></div>
         )}
       </div>
     </div>
