@@ -8,6 +8,7 @@
   width: 100%;
   min-height: 404px;
   padding: 50px 0;
+  background-color: #e4ebf8;
 }
 
 .body:has(.welcome-page) {
