@@ -1,0 +1,64 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact h1 {
+  text-align: center;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-inputs div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.contact-inputs div:last-child {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-inputs input,
+.contact-inputs textarea {
+  outline: none;
+  width: 220px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.contact-inputs input {
+  height: 34px;
+  padding: 0 12px;
+}
+
+.contact-inputs textarea {
+  resize: none;
+  padding: 6px 12px;
+  height: 100px;
+}
+
+.contact button {
+  width: 90px;
+  height: 34px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1.5px .02px;
+  background-color: rgb(247, 247, 247);
+  cursor: pointer;
+}
+
+.contact button:hover {
+  transform: translateY(-1px);
+}
+
+.contact button:active {
+  transform: translateY(1px);
+}
