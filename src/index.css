@@ -38,6 +38,13 @@ a {
   font-weight: bold;
 }
 
+input,
+textarea {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid;
+  padding: 0 5px;
+}
+
 ul {
   list-style-type: none;
   direction: rtl;
