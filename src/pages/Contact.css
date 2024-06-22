@@ -97,7 +97,7 @@
   border: none;
   outline: none;
   box-shadow: 0 0 1.5px .02px;
-  background-color: rgb(64, 187, 236);
+  background-color: var(--primary-color);
   font-size: large;
   cursor: pointer;
 }
