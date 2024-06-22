@@ -2,16 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px 0;
+  width: 100%;
 }
 
 .contact h1 {
   text-align: center;
 }
 
+// .contact-inputs {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 12px;
+// }
 .contact-inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  gap: 34px 24px;
+  grid-template-areas:
+    'email phone'
+    'subject subject'
+    'message message'
 }
 
 .contact-inputs div {
@@ -29,29 +39,66 @@
 .contact-inputs input,
 .contact-inputs textarea {
   outline: none;
-  width: 220px;
-  font-size: 1rem;
-  font-weight: 400;
+  width: 100%;
+}
+
+.contact-inputs span {
+  font-weight: 500;
 }
 
 .contact-inputs input {
   height: 34px;
-  padding: 0 12px;
+  padding: 20px 12px;
+  border: 0;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .contact-inputs textarea {
   resize: none;
   padding: 6px 12px;
-  height: 100px;
+  height: 200px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.field-email {
+  grid-area: email;
+
+  & input {
+    direction: ltr;
+  }
+}
+
+.field-phone {
+  grid-area: phone;
+
+  & input {
+    direction: ltr;
+  }
+}
+
+.field-subject {
+  grid-area: subject;
+
+  & span {
+    padding-left: 12px;
+  }
+}
+
+.field-message {
+  grid-area: message;
 }
 
 .contact button {
-  width: 90px;
-  height: 34px;
+  width: 120px;
+  height: 46px;
   border: none;
   outline: none;
   box-shadow: 0 0 1.5px .02px;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(64, 187, 236);
+  font-size: large;
   cursor: pointer;
 }
 
@@ -61,4 +108,21 @@
 
 .contact button:active {
   transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+  .contact-inputs {
+    grid-template-areas:
+      'email email email'
+      'phone phone phone'
+      'subject subject subject'
+      'message message message';
+
+    width: 100%;
+    padding: 40px;
+  }
+
+  .field-phone span {
+    padding-left: 6px;
+  }
 }
