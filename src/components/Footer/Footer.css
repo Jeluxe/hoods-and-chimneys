@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  background-color: rgb(62, 119, 168);
+  background-color: var(--primary-color);
   box-shadow: 0 -1px 3px .4px;
 }
 
@@ -69,7 +69,9 @@
 }
 
 .section-content {
-  color: rgb(215, 215, 215);
+  color: rgb(30, 27, 27);
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .footer-credits {
