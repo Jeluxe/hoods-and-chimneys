@@ -5,7 +5,7 @@
   margin: 50px 0;
 }
 
-.wrapper {
+.about .wrapper {
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -13,28 +13,28 @@
   justify-content: center;
 }
 
-section {
+.about section {
   display: flex;
   align-items: center;
   gap: 40px
 }
 
-section:nth-child(odd) {
+.about section:nth-child(odd) {
   flex-direction: row-reverse;
 }
 
 @media (max-width: 1440px) {
-  .wrapper {
+  .about .wrapper {
     width: 70%;
   }
 }
 
 @media (max-width: 1028px) {
-  .wrapper {
+  .about .wrapper {
     gap: 50px;
   }
 
-  section {
+  .about section {
     flex-direction: column !important;
     word-break: break-all;
   }
