@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,6 +9,7 @@
   // background-color: #242424;
 
   --primary-color: rgb(42 160 206);
+  --error-color: #fa6969;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,6 +24,7 @@ body {
   margin: 0;
   padding: 0;
   direction: rtl;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 html {
