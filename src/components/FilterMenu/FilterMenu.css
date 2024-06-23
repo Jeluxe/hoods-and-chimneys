@@ -95,4 +95,6 @@
 .price-inputs {
   width: 60px;
   outline: none;
+  border: 0;
+  border-bottom: 1px solid black;
 }
