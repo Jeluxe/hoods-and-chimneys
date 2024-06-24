@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   transition: top 0.3s;
-  background: var(--primary-color);
+  background: var(--primary);
   z-index: 99;
   box-shadow: 0 1px 2px 0.001px;
 }

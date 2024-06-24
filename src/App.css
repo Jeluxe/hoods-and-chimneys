@@ -7,7 +7,6 @@
 .body {
   width: 100%;
   min-height: 404px;
-  background-color: #e4ebf8;
 }
 
 .body:has(.welcome-page) {

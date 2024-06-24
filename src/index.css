@@ -1,15 +1,16 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: only light;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.85);
-  // color: rgba(255, 255, 255, 0.87);
-  // background-color: #242424;
 
-  --primary-color: rgb(42 160 206);
-  --error-color: #fa6969;
+
+  --text: #fafcfd;
+  --background: #e4ebf8;
+  --primary: #21a8dc;
+  --secondary: #87c8e2;
+  --accent: #5ebbdf;
+  --success: #2ce16c;
+  --error: #fa6969;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,11 +34,12 @@ html {
 
 body {
   height: 100vh;
+  background-color: var(--background);
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--text);
   font-weight: bold;
 }
 
