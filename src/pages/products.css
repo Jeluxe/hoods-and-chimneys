@@ -30,8 +30,4 @@
     display: flex;
     justify-content: center;
   }
-
-  .products-container {
-    width: 552px;
-  }
 }
