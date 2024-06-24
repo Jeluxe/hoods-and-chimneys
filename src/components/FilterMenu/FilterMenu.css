@@ -53,6 +53,9 @@
 }
 
 .filter-menu-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: rgb(0, 115, 246);
   cursor: pointer;
   user-select: none;
