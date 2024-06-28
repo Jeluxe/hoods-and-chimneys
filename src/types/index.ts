@@ -1,3 +1,9 @@
+declare module "react" {
+  interface CSSProperties {
+    '--t'?: string
+  }
+}
+
 export interface ProductProps {
   id: string,
   name: string,
