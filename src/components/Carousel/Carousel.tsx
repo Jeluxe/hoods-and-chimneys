@@ -55,7 +55,9 @@ const Carousel = ({ imageList = [fisherman, lens, cleaning] }: CarouselProps) =>
         <button className="carousel-button next" onClick={() => nextImage()}><ArrowLeft /></button>
       </div>
       <div className="carousel">
-        <img src={imageList[selected]} />
+        {imageList.map((image: string, idx: number) =>
+          <img src={image} style={{ display: idx === selected ? "block" : "none" }} />
+        )}
       </div>
       <div className="carousel-navigation">
         {imageList.map((_: string, idx: number) =>
