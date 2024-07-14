@@ -3,6 +3,7 @@ import { Carousel } from "../components";
 import "./Welcome.css"
 
 const Welcome = () => {
+  const solutions = Array(9).fill({ title: "Solution", icon: "", description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore." })
   const customers = Array(7).fill(0)
   return (
     <div className="welcome">
@@ -13,42 +14,18 @@ const Welcome = () => {
         <section>
           <h1>הפתרונות שלנו</h1>
           <div className="solutions-container">
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
-            <div className="solution">
-              <h3>solution</h3>
-              <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi sint quas consequatur. Eos dolorum ut in enim commodi dignissimos molestias doloribus nam omnis corrupti nemo suscipit eveniet, minus consequatur inventore.</div>
-            </div>
+            {solutions.map((solution, idx) =>
+              <div className="solution">
+                <div className="solution-icon-wrapper">
+                  <span className="solution-icon">{solution.icon}</span>
+                </div>
+                <div className="solution-content">
+                  <h3>{solution.title + idx}</h3>
+                  <div>{solution.description}</div>
+                </div>
+              </div>
+            )}
+
           </div>
         </section>
         <section>
