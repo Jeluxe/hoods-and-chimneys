@@ -54,6 +54,10 @@ ul {
   list-style-type: none;
 }
 
+span {
+  margin: 0;
+}
+
 .hide {
   display: none !important;
 }
