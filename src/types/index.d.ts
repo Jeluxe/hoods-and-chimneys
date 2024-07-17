@@ -1,4 +1,5 @@
-declare module "react" {
+// index.d.ts
+export declare module 'react' {
   interface CSSProperties {
     '--t'?: string
   }

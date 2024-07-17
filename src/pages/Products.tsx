@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Cards, Dropdown } from '../components';
-import { displayedProductProps } from '../types';
+import { displayedProductProps } from '../types/product';
 import "./products.css";
 
 const sortingTypes: { [key: string]: string } = {

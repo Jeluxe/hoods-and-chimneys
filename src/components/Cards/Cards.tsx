@@ -1,5 +1,5 @@
 import { Card } from "../"
-import { displayedProductProps } from "../../types";
+import { displayedProductProps } from "../../types/product";
 import './Cards.css'
 
 const Cards = ({ products }: { products: displayedProductProps[] }) => {

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { displayedProductProps } from '../../types';
+import { displayedProductProps } from '../../types/product';
 import './Card.css'
 
 const Card = ({ product: { id, name, image, price } }: { product: displayedProductProps }) => {

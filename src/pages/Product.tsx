@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom";
 
-import { ProductProps } from "../types";
+import { ProductProps } from "../types/product";
 import DummyImage320x380 from "../assets/images/dummy_320x380.png"
 import "./Product.css"
 

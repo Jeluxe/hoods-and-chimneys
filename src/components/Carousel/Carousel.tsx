@@ -56,7 +56,7 @@ const Carousel = ({ imageList = [fisherman, lens, cleaning] }: CarouselProps) =>
       </div>
       <div className="carousel">
         {imageList.map((image: string, idx: number) =>
-          <img src={image} style={{ display: idx === selected ? "block" : "none" }} />
+          <img key={idx} src={image} style={{ display: idx === selected ? "block" : "none" }} />
         )}
       </div>
       <div className="carousel-navigation">

@@ -15,7 +15,7 @@ const Welcome = () => {
           <h1>הפתרונות שלנו</h1>
           <div className="solutions-container">
             {solutions.map((solution, idx) =>
-              <div className="solution">
+              <div key={idx} className="solution">
                 <div className="solution-icon-wrapper">
                   <span className="solution-icon">{solution.icon}</span>
                 </div>
@@ -42,12 +42,12 @@ const Welcome = () => {
           <div className="customers-container" style={{ '--t': "40s" }}>
             <div>
               {customers.map((_, idx) => {
-                return <span className="customer">{idx}</span>
+                return <span key={`a${idx}`} className="customer">{idx}</span>
               })}
             </div>
             <div>
               {customers.map((_, idx) => {
-                return <span className="customer">{idx}</span>
+                return <span key={`b${idx}`} className="customer">{idx}</span>
               })}
             </div>
           </div>
