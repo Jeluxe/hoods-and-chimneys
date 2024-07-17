@@ -1,8 +1,8 @@
-import { MouseEvent, useEffect, useState } from 'react';
-import { Cards, Dropdown, FilterMenu } from '../components'
-import "./products.css"
-import { Filter } from '../assets/icons';
-import { FilterOptions, displayedProductProps } from '../types';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Cards, Dropdown } from '../components';
+import { displayedProductProps } from '../types';
+import "./products.css";
 
 const sortingTypes: { [key: string]: string } = {
   "lowToHigh": "נמוך לגבוה",
@@ -10,54 +10,20 @@ const sortingTypes: { [key: string]: string } = {
 }
 
 const Products = () => {
+  const { category } = useParams()
   const [products, setProducts] = useState<displayedProductProps[]>([]);
-  const [isSmallDevice, setIsSmallDevice] = useState<boolean>(false);
-  const [showFilterMenu, setShowFilterMenu] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedSection, setSelectedSection] = useState<string>("type");
   const [selectedSortingType, setSelectedSortingType] = useState<string>("lowToHigh");
-  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    type: [
-      { id: "coal", name: "פחם", checked: false },
-      { id: "filter", name: "מסנן", checked: false },
-    ],
-    price: {
-      min: 1,
-      max: 9999
-    }
-  })
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch(`http://localhost:8000/products`);
+    const fetchProducts = async (category: string) => {
+      const res = await fetch(`http://localhost:8000/${category}`);
       return await res.json();
     }
 
-    fetchProducts().then((data: displayedProductProps[]) => setProducts(data))
-
-    const handleResize = () => {
-      const winWidth = window.innerWidth;
-      if (winWidth <= 768) {
-        setIsSmallDevice(true)
-      } else {
-        setIsSmallDevice(false)
-      }
+    if (category) {
+      fetchProducts(category).then((data: displayedProductProps[]) => setProducts(data))
     }
-    handleResize()
-
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
-  const openCloseSection = (e: MouseEvent, type: string) => {
-    e.stopPropagation();
-
-    setIsOpen(!isOpen);
-    setSelectedSection(type);
-  }
+  }, [category])
 
   const sortingPlan = (a: displayedProductProps, b: displayedProductProps, type: string) => {
     switch (type) {
@@ -74,26 +40,8 @@ const Products = () => {
 
   return (
     <div className="products-container">
-      <FilterMenu
-        filterOptions={filterOptions}
-        setFilterOptions={setFilterOptions}
-        isSmallDevice={isSmallDevice}
-        showFilterMenu={showFilterMenu}
-        setShowFilterMenu={setShowFilterMenu}
-        isOpen={isOpen}
-        selectedSection={selectedSection}
-        openCloseSection={openCloseSection}
-      />
       <div className="products-section">
         <div className="products-section-header">
-          {
-            isSmallDevice ?
-              <div className="filter-menu-button" onClick={() => setShowFilterMenu(true)}>
-                <Filter />
-                סינון
-              </div> :
-              null
-          }
           <Dropdown
             types={sortingTypes}
             selectedOption={selectedSortingType}
