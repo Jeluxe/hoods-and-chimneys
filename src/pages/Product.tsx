@@ -6,21 +6,21 @@ import DummyImage320x380 from "../assets/images/dummy_320x380.png"
 import "./Product.css"
 
 const Product = () => {
+  const { category, productId } = useParams<string>();
   const mainRef = useRef<HTMLImageElement>(null)
   const placeholderRef = useRef<HTMLImageElement>(null)
-  const { productId } = useParams<string>();
   const [productInfo, setProductInfo] = useState<ProductProps | null>(null);
 
   useEffect(() => {
-    const fetchProduct = async (productId: string) => {
-      const res = await fetch(`http://localhost:8000/products/${productId}`);
+    const fetchProduct = async ({ category, productId }: { category: string, productId: string }) => {
+      const res = await fetch(`http://localhost:8000/${category}/${productId}`);
       return await res.json();
     }
 
-    if (productId) {
-      fetchProduct(productId).then((data: ProductProps) => setProductInfo(data))
+    if (category && productId) {
+      fetchProduct({ category, productId }).then((data: ProductProps) => setProductInfo(data))
     }
-  }, [productId])
+  }, [category, productId])
 
 
   if (!productInfo) {

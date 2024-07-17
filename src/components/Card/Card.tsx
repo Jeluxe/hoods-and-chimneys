@@ -1,10 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { displayedProductProps } from '../../types';
 import './Card.css'
 
 const Card = ({ product: { id, name, image, price } }: { product: displayedProductProps }) => {
+  const { category } = useParams()
   const navigate = useNavigate();
+
+  if (!category) return
 
   return (
     <div id={id} className="card">
@@ -14,7 +17,7 @@ const Card = ({ product: { id, name, image, price } }: { product: displayedProdu
           <div>{name}</div>
           <div>{price} ₪ </div>
         </div>
-        <button onClick={() => navigate(`/products/${id}`)}>לפרטים</button>
+        <button onClick={() => navigate(`/${category}/${id}`)}>לפרטים</button>
       </div>
     </div>
   )
