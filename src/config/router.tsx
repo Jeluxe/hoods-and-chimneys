@@ -17,7 +17,7 @@ const router = createBrowserRouter(
       <Route path=":category" element={<Products />} />
       <Route path=":category/:productId" element={<Product />} />
       <Route path="contact" element={<Contact />} />
-      <Route path="*" element={<div>Page not found 404</div>} />
+      <Route path="404" element={<div>Page not found 404</div>} />
     </Route >
   )
 );
