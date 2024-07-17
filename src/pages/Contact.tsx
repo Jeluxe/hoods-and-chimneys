@@ -1,40 +1,12 @@
 import { ChangeEvent, MouseEvent, useState } from "react"
+import {
+  EMAIL_REGEX,
+  PHONE_REGEX,
+  inputProps,
+  extList
+} from "../contstants/contact";
+import { InputProps, FieldsProps } from "../types/contact";
 import "./Contact.css"
-
-const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/g;
-const PHONE_REGEX = /[0-9]{2,3}-[0-9]{7,8}/g;
-
-type FieldsProps = {
-  email: string;
-  phone: string;
-  subject: string;
-  notes: string;
-}
-
-const inputProps = [
-  {
-    title: "email",
-    name: "אימייל",
-  },
-  {
-    title: "phone",
-    name: "טלפון",
-    minLength: 7,
-    maxLength: 8
-  },
-  {
-    title: "subject",
-    name: "נושא"
-  },
-  {
-    title: "notes",
-    name: "הערות",
-    rows: 7,
-    maxLength: 580
-  }
-]
-
-const extList = ["053", "052", "051", "050", "03", "02"];
 
 const Contact = () => {
   const [fields, setFields] = useState<FieldsProps>({
@@ -120,7 +92,7 @@ const Contact = () => {
         <br />
         <form onSubmit={onSubmit}>
           <div className="contact-inputs">
-            {inputProps.map(({ title, name, ...props }, idx) => {
+            {inputProps.map(({ title, name, ...props }: InputProps, idx: number) => {
               const InputComponent = title === "notes" ? "textarea" : "input";
               return <label key={idx} className={`fields field-${title}`} htmlFor={title}>{name}:
                 {
@@ -140,7 +112,7 @@ const Contact = () => {
                       value={phoneExt}
                       onChange={({ target: { value } }) => setPhoneExt(value)}
                     >
-                      {extList.map((ext, idx) => (
+                      {extList.map((ext: string, idx: number) => (
                         <option key={idx} value={ext}>{ext}</option>
                       ))}
                     </select>
