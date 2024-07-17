@@ -7,7 +7,14 @@ const Navbar = ({ isSticky }: { isSticky: boolean }) => {
       <ul>
         <li><Link to="/">דף הבית</Link></li>
         <li><Link to="/about">אודות</Link></li>
-        <li><Link to="/Products">מוצרים</Link></li>
+        <li>
+          <div>מוצרים</div>
+          <div className='category-list'>
+            <Link to="/hoods">מנדפים</Link>
+            <Link to="/chimneys">ארובות</Link>
+            <Link to="/filters">מסננים</Link>
+          </div>
+        </li>
         <li><Link to="/contact">צור קשר</Link></li>
       </ul>
     </nav>
