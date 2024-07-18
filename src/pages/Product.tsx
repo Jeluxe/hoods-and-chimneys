@@ -1,31 +1,14 @@
-import { useEffect, useRef, useState } from "react"
-import { useParams } from "react-router-dom";
+import { useRef, } from "react"
+import { Navigate, useLoaderData, } from "react-router-dom";
 
-import { ProductProps } from "../types/product";
 import DummyImage320x380 from "../assets/images/dummy_320x380.png"
+import { ProductProps } from "../types/product";
 import "./Product.css"
 
 const Product = () => {
-  const { category, productId } = useParams<string>();
+  const productInfo = useLoaderData() as ProductProps;
   const mainRef = useRef<HTMLImageElement>(null)
   const placeholderRef = useRef<HTMLImageElement>(null)
-  const [productInfo, setProductInfo] = useState<ProductProps | null>(null);
-
-  useEffect(() => {
-    const fetchProduct = async ({ category, productId }: { category: string, productId: string }) => {
-      const res = await fetch(`http://localhost:8000/${category}/${productId}`);
-      return await res.json();
-    }
-
-    if (category && productId) {
-      fetchProduct({ category, productId }).then((data: ProductProps) => setProductInfo(data))
-    }
-  }, [category, productId])
-
-
-  if (!productInfo) {
-    return <div>No data</div>
-  }
 
   const onImageLoad = () => {
     setTimeout(() => {
@@ -35,6 +18,9 @@ const Product = () => {
     }, 3000);
   }
 
+  if (!productInfo) {
+    return <Navigate to={"/404"} replace />
+  }
 
   return (
     <div className="product">

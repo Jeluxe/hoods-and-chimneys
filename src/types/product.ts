@@ -13,3 +13,7 @@ export type FilterOptions = {
 }
 
 export type displayedProductProps = Omit<ProductProps, "description">
+
+export type Category = "hoods" | "chimneys" | "filters"
+
+export type ProductParams = { category: Category, productId: string }

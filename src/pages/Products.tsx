@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate, useLoaderData } from 'react-router-dom';
 import { Cards, Dropdown } from '../components';
 import { displayedProductProps } from '../types/product';
 import "./products.css";
@@ -10,20 +10,12 @@ const sortingTypes: { [key: string]: string } = {
 }
 
 const Products = () => {
-  const { category } = useParams()
-  const [products, setProducts] = useState<displayedProductProps[]>([]);
+  const products = useLoaderData() as displayedProductProps[]
   const [selectedSortingType, setSelectedSortingType] = useState<string>("lowToHigh");
 
-  useEffect(() => {
-    const fetchProducts = async (category: string) => {
-      const res = await fetch(`http://localhost:8000/${category}`);
-      return await res.json();
-    }
-
-    if (category) {
-      fetchProducts(category).then((data: displayedProductProps[]) => setProducts(data))
-    }
-  }, [category])
+  if (!products) {
+    return <Navigate to={"/404"} replace />
+  }
 
   const sortingPlan = (a: displayedProductProps, b: displayedProductProps, type: string) => {
     switch (type) {
