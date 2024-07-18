@@ -6,7 +6,7 @@
 
 .body {
   width: 100%;
-  min-height: 404px;
+  min-height: 700px;
 }
 
 .body:has(.welcome-page) {
