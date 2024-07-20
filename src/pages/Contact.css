@@ -94,6 +94,7 @@
 
   & input {
     direction: ltr;
+    width: 130px;
   }
 }
 
@@ -139,7 +140,16 @@
 }
 
 select {
+  height: 34px;
+  font-size: 18px;
+  font-weight: 400;
+  background: transparent;
+  color: white;
   outline: none;
+}
+
+select option {
+  background-color: #000000d6;
 }
 
 @media (max-width: 768px) {
@@ -160,6 +170,12 @@ select {
 
     width: 100%;
     padding: 20px;
+  }
+
+  .field-phone {
+    & input {
+      width: 100%;
+    }
   }
 
   .field-phone span {
